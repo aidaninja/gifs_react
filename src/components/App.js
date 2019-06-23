@@ -1,6 +1,9 @@
 import React from 'react';
+import faker from 'faker';
 
 import giphy from '../api/Giphy'
+
+import '../styles/App.css'
 
 import SearchBar from './SearchBar'
 import GifList from './GifList'
@@ -11,10 +14,16 @@ class App extends React.Component {
         super(props)
     
         this.state = {
+            currentTerm:'',
              gifs: [],
              clickedGif: {},
              modal: false
         }
+    }
+
+    componentDidMount(){
+        const initialSearchTerm = faker.random.word();
+        this.onSearch(initialSearchTerm);
     }
     
     onSearch = async (term)=>{
@@ -27,7 +36,7 @@ class App extends React.Component {
                 }
         });
 
-        this.setState({gifs: response.data.data});
+        this.setState({currentTerm: term, gifs: response.data.data});
     }
 
     onGifClicked= (gif)=>{
@@ -41,9 +50,9 @@ class App extends React.Component {
     render() {
         return (
             <>
-                <div className="ui container">
-                    GGIFs
-                    <SearchBar onSearch={this.onSearch} />
+                <div className="ui container ">
+                    <h1 className="ui header"><span role="img" aria-label="fire">🔥</span>GIFs<span role="img" aria-label="fire">🔥</span></h1>
+                    <SearchBar currentTerm={this.state.currentTerm} onSearch={this.onSearch} />
                     <GifList onGifClick={this.onGifClicked} gifs={this.state.gifs} />
                 </div>
                 <GifModal gif={this.state.clickedGif} modalOff={this.modalOff} modalState={this.state.modal} />

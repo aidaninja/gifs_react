@@ -1,0 +1,9 @@
+label{
+    color: #fff !important;
+}
+
+.current-term{
+    font-size: 18px;
+    color: #fff;
+    padding-top: 20px;
+}

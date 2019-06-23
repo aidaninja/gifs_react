@@ -11,4 +11,6 @@
     display: block;
     margin: 0 auto;
     cursor: pointer;
+    box-shadow: 0em 0.2em 0em inset;
+    border-radius: 10px;
 }

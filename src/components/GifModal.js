@@ -13,9 +13,9 @@ class GifModal extends React.Component{
         }
         return (
             <div>
-                <p onClick={this.onModalExit}>close</p>
-                <div onClick={this.onModalExit} className="gif-modal">
-                    <img src={this.props.gif.images.preview_gif.url} alt={this.props.gif.title} />
+                <div onClick={this.onModalExit} className="gif-modal-bg"></div>
+                <div className="gif-modal">
+                    <img src={this.props.gif.images.downsized.url} alt={this.props.gif.title} />
                 </div>
             </div>
         )

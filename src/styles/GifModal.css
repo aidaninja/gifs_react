@@ -2,14 +2,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.gif-modal img{
+    max-width: 80Vw;
+    object-fit: cover;
+    height: 50vh;
+    border-radius: 10px;
+}
+
+.gif-modal-bg{
     width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     background: rgba(0,0,0,0.9);
-}
-
-.gif-modal img{
-    height: 50vw;
+    filter: blur(3px);
 }

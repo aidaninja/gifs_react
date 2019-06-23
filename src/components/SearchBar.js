@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/SearchBar.css'
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -20,12 +21,15 @@ class SearchBar extends React.Component {
     
     render() {
         return (
-            <div className="ui form">
-                <form onSubmit={this.onSearch} className="field">
-                    <label>Search GIF</label>
-                    <input defaultValue={this.state.term} onChange={this.onUserInput} type="text"/>
-                </form>
-            </div>
+            <>
+                <div className="ui form">
+                    <form onSubmit={this.onSearch} className="field">
+                        <label>Search your favorite GIF</label>
+                        <input defaultValue={this.state.term} onChange={this.onUserInput} type="text"/>
+                    </form>
+                </div>
+                <p className="current-term">{`searching for gif: "${this.props.currentTerm}"`}</p>
+            </>
         )
     }
 }
